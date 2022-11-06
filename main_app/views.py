@@ -1,27 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-class Finch:
-  def __init__(self, name, breed, description, age):
-    self.name = name
-    self.breed = breed
-    self.description = description
-    self.age = age
-
-finches = [
-  Finch('Lolo', 'tabby', 'Kinda rude.', 3),
-  Finch('Sachi', 'tortoiseshell', 'Looks cute.', 0),
-  Finch('Fancy', 'bombay', 'Happy feathers.', 4),
-  Finch('Bonk', 'selkirk rex', 'Chirps loudly.', 6)
-]
+from .models import Finch
 
 # Create your views here.
 
 def home(request):
-  return HttpResponse('<h1>Hello ᓚᘏᗢ</h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
 
 def finches_index(request):
+  finches = Finch.objects.all()
   return render(request, 'finches/index.html', {'finches': finches})
