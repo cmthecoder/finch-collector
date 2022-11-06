@@ -5,7 +5,7 @@
 <link 
   rel="stylesheet"
   type="text/css"
-  href="{% static 'css/cats/cat-index.css' %}"
+  href="{% static 'css/finches/finch-index.css' %}"
 />
 {% endblock %}
 
@@ -13,29 +13,29 @@
 
 <section class="page-header">
   <h1>Finch List</h1>
-  <img src="{% static 'images/cool-cat.svg' %}" alt="A cool cat" />
-  <img src="{% static 'images/happy-cat.svg' %}" alt="A happy cat" />
-  <img src="{% static 'images/teacup-cat.svg' %}" alt="A cat in a teacup" />
-  <img src="{% static 'images/cat-in-box.svg' %}" alt="A cat in a box" />
+  <img src="{% static 'images/animal-gaa8ee54b4_1920_adobe_express.svg' %}" alt="A grey and orange cheeked finch on a branch" />
+  <img src="{% static 'images/society-finch-g66fe317d5_1920_adobe_express.svg' %}" alt="A brown and white finch on a branch " />
+  <img src="{% static 'images/zebra-finch-g1e268c15a_1920_adobe_express.svg' %}" alt="A orange beaked finch facing the camera" />
+  <img src="{% static 'images/chaffinch-g12c761c40_1920_adobe_express.svg' %}" alt="A brown, blue, and brown finch pirched on a tree branch" />
 </section>
 
 <section class="card-container">
-  {% for cat in cats %}
+  {% for finch in finches %}
     <div class="card">
       <div class="card-content">
         <div class="card-img-container">
           <img 
-            src="{% static 'images/sk8r-boi-cat.svg' %}" 
-            alt="A skater boy cat"
+            src="{% static 'images/chaffinch-g12c761c40_1920_adobe_express.svg' %}" 
+            alt="A finch on a branch"
           >
         </div>
-        <h2 class="card-title">{{ cat.name }}</h2>
-        {% if cat.age > 0 %}
-          <p>A {{ cat.age }} year old {{ cat.breed }}</p>
+        <h2 class="card-title">{{ finch.name }}</h2>
+        {% if finch.age > 0 %}
+          <p>A {{ finch.age }} year old {{ finch.breed }}</p>
         {% else %}
-          <p>A {{ cat.breed }} kitten.</p>
+          <p>A {{ finch.breed }} finch.</p>
         {% endif %}
-        <p><small>{{ cat.description }}</small></p>
+        <p><small>{{ finch.description }}</small></p>
       </div>
     </div>
   {% endfor %}
