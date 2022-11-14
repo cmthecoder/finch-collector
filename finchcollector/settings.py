@@ -1,3 +1,7 @@
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
 """
 Django settings for finchcollector project.
 
@@ -21,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8kd!e-y2-_qicp3y=s2=c0-km#3-158#o8u8is$5zm1y5b0xtg'
+SECRET_KEY = 'y3*@+4mw74u@3ndnmko=6xy!_z7_vd0^tmns_5jmgf(-wa0c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG') == 'True' 
 
 ALLOWED_HOSTS = []
 
@@ -134,3 +138,16 @@ LOGOUT_REDIRECT_URL = 'home'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Configure Django App for Heroku.
+import django_heroku
+
+# Other settings above
+django_heroku.settings(locals())
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
+WSGI_APPLICATION = 'finchcollector.wsgi.application'
+
