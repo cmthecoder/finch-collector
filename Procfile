@@ -1,1 +1,1 @@
-web: gunicorn chris-mems-finch-collector.wsgi
+web: gunicorn finchcollector.wsgi
